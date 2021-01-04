@@ -2,7 +2,7 @@ import java.util.*;
 public class PigLatin{
   public static void main(String[] args){
     for(String i : args){
-      System.out.println(pigLatin(i));
+      System.out.println(pigLatinBest(i));
     }
   }
 
@@ -26,5 +26,15 @@ public class PigLatin{
       if(s.substring(0,2).equals(i)) return s.substring(2) + s.substring(0,2) + "ay";
     }
     return s.substring(1) + s.substring(0,1) + "ay";
+  }
+
+  public static String pigLatinBest(String s){
+    s = s.toLowerCase();
+    if(s.charAt(0) >= 'a' && s.charAt(0) <= 'z'){
+      char lastChar = s.charAt(s.length() - 1);
+      if(lastChar >= 'a' && lastChar <= 'z') return pigLatin(s);
+      return pigLatin(s.substring(0, s.length() - 1)) + lastChar;
+    }
+      return s;
   }
 }
