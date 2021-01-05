@@ -1,8 +1,14 @@
 import java.util.*;
 public class PigLatin{
   public static void main(String[] args){
-    for(String i : args){
-      System.out.println(pigLatinBest(i));
+    Scanner line = new Scanner(System.in);
+    while(line.hasNext()){
+      Scanner word = new Scanner(line.nextLine());
+      while(word.hasNext()){
+        System.out.print(pigLatinBest(word.next()));
+        if(word.hasNext()) System.out.print(" ");
+      }
+      if(line.hasNext()) System.out.println();
     }
   }
 
