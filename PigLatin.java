@@ -28,8 +28,10 @@ public class PigLatin{
     for(String i : vowels){
       if(s.substring(0,1).equals(i)) return s + "hay";
     }
-    for(String i : digraphs){
-      if(s.substring(0,2).equals(i)) return s.substring(2) + s.substring(0,2) + "ay";
+    if(s.length() >= 2){
+      for(String i : digraphs){
+        if(s.substring(0,2).equals(i)) return s.substring(2) + s.substring(0,2) + "ay";
+      }
     }
     return s.substring(1) + s.substring(0,1) + "ay";
   }
